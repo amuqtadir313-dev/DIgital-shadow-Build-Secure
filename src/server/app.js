@@ -9,6 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const orderVendorRoutes = require("./routes/orderVendorRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const { authenticate } = require("./middleware/auth");
 const { authorize } = require("./middleware/authorize");
@@ -104,8 +105,11 @@ app.use("/api/products", productRoutes);
 // Customer order routes
 app.use("/api/orders", orderRoutes);
 
-// Vendor order management routes
+// Vendor order management
 app.use("/api/vendor/orders", orderVendorRoutes);
+
+// Admin management
+app.use("/api/admin", adminRoutes);
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
