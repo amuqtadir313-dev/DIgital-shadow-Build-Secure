@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Dashboard | MarketHub</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Market<span>Hub</span>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="./index.html">Home</a>
+
+        <a href="#products">Products</a>
+
+        <a href="#cart">Cart</a>
+
+        <a href="#orders">Orders</a>
+
+        <button
+            class="nav-button"
+            onclick="logoutUser()">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard-page">
+
+    <!-- CUSTOMER HEADER -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="section-label">
+                CUSTOMER DASHBOARD
+            </p>
+
+            <h1>
+                Welcome,
+                <span id="userName">Customer</span>
+            </h1>
+
+            <p>
+                Shop securely and manage your orders.
+            </p>
+
+        </div>
+
+        <div class="dashboard-security">
+            🔐 Secure Session Active
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section
+        id="products"
+        class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    MARKETPLACE
+                </p>
+
+                <h2>
+                    Available Products
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="dashboardSearch"
+                placeholder="Search products..."
+            >
+
+            <button
+                class="primary-button"
+                onclick="loadDashboardProducts()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div
+            id="dashboardProducts"
+            class="products-grid">
+
+            <div class="loading">
+                Loading products...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+
+    <section
+        id="cart"
+        class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    SHOPPING CART
+                </p>
+
+                <h2>
+                    Your Cart
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="shoppingCart">
+
+            <div class="empty-state">
+                Your cart is empty.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDERS -->
+
+    <section
+        id="orders"
+        class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    ORDER HISTORY
+                </p>
+
+                <h2>
+                    Your Orders
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="customerOrders">
+
+            <div class="loading">
+                Loading your orders...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="logo">
+            Market<span>Hub</span>
+        </div>
+
+        <p>
+            Secure Multi-Vendor Marketplace
+        </p>
+
+        <p class="copyright">
+            © 2026 MarketHub.
+            Built for Build Secure Hackathon.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>

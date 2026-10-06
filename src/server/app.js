@@ -4,6 +4,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const path = require("path");
 
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
@@ -16,25 +17,41 @@ const { authorize } = require("./middleware/authorize");
 
 const app = express();
 
-// Security headers
+const clientPath = path.join(__dirname, "../client");
+
+// ======================================================
+// SECURITY HEADERS
+// ======================================================
+
 app.use(
     helmet({
         contentSecurityPolicy: false
     })
 );
 
-// Limit request body size
+// ======================================================
+// REQUEST BODY LIMIT
+// ======================================================
+
 app.use(express.json({ limit: "10kb" }));
 
-// Controlled cross-origin access
+// ======================================================
+// CORS
+// ======================================================
+
 app.use(
     cors({
-        origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
+        origin:
+            process.env.CLIENT_ORIGIN ||
+            "http://localhost:5173",
         credentials: true
     })
 );
 
-// Global API rate limiting
+// ======================================================
+// GLOBAL API RATE LIMIT
+// ======================================================
+
 const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     limit: 100,
@@ -48,7 +65,10 @@ const apiLimiter = rateLimit({
 
 app.use("/api", apiLimiter);
 
-// Health check
+// ======================================================
+// HEALTH CHECK
+// ======================================================
+
 app.get("/api/health", (req, res) => {
     res.status(200).json({
         success: true,
@@ -57,7 +77,10 @@ app.get("/api/health", (req, res) => {
     });
 });
 
-// Protected customer test route
+// ======================================================
+// TEST ROUTES
+// ======================================================
+
 app.get(
     "/api/test/customer",
     authenticate,
@@ -71,7 +94,6 @@ app.get(
     }
 );
 
-// Protected vendor test route
 app.get(
     "/api/test/vendor",
     authenticate,
@@ -85,7 +107,6 @@ app.get(
     }
 );
 
-// Protected admin test route
 app.get(
     "/api/test/admin",
     authenticate,
@@ -99,22 +120,32 @@ app.get(
     }
 );
 
-// Product routes
+// ======================================================
+// API ROUTES
+// ======================================================
+
 app.use("/api/products", productRoutes);
-
-// Customer order routes
 app.use("/api/orders", orderRoutes);
-
-// Vendor order management
 app.use("/api/vendor/orders", orderVendorRoutes);
-
-// Admin management
 app.use("/api/admin", adminRoutes);
-
-// Authentication routes
 app.use("/api/auth", authRoutes);
 
-// 404 handler
+// ======================================================
+// FRONTEND
+// ======================================================
+
+// Serve CSS, JavaScript and HTML files
+app.use(express.static(clientPath));
+
+// Explicitly serve homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(clientPath, "index.html"));
+});
+
+// ======================================================
+// 404 HANDLER
+// ======================================================
+
 app.use((req, res) => {
     res.status(404).json({
         success: false,
@@ -122,13 +153,16 @@ app.use((req, res) => {
     });
 });
 
-// Global error handler
+// ======================================================
+// GLOBAL ERROR HANDLER
+// ======================================================
+
 app.use((err, req, res, next) => {
     console.error("Server error:", err);
 
     res.status(500).json({
         success: false,
-        message: err.message || "Internal server error"
+        message: "Internal server error"
     });
 });
 

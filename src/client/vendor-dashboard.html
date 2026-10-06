@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vendor Dashboard | MarketHub</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Market<span>Hub</span>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="./index.html">Home</a>
+        <a href="#products">My Products</a>
+        <a href="#orders">Orders</a>
+
+        <button
+            class="nav-button"
+            onclick="logoutUser()"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard-page">
+
+    <!-- HEADER -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <p class="section-label">
+                VENDOR DASHBOARD
+            </p>
+
+            <h1>
+                Welcome, <span id="vendorName">Vendor</span>
+            </h1>
+
+            <p>
+                Manage your products and process customer orders.
+            </p>
+
+        </div>
+
+        <div class="dashboard-security">
+            🔐 Vendor Session Active
+        </div>
+
+    </section>
+
+
+    <!-- ADD PRODUCT -->
+
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    INVENTORY
+                </p>
+
+                <h2>
+                    Add New Product
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-card vendor-form-card">
+
+            <form id="productForm">
+
+                <div class="form-group">
+
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        maxlength="150"
+                        required
+                        placeholder="Product name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productDescription">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productDescription"
+                        placeholder="Product description"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productPrice">
+                        Price (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="0"
+                        step="0.01"
+                        required
+                        placeholder="999.99"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productStock">
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productStock"
+                        min="0"
+                        step="1"
+                        required
+                        placeholder="10"
+                    >
+
+                </div>
+
+
+                <div
+                    id="productMessage"
+                    class="form-message"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button auth-button"
+                >
+                    Add Product
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- MY PRODUCTS -->
+
+    <section
+        id="products"
+        class="dashboard-section"
+    >
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    PRODUCT MANAGEMENT
+                </p>
+
+                <h2>
+                    My Products
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="vendorProducts"
+            class="products-grid"
+        >
+
+            <div class="loading">
+                Loading products...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDERS -->
+
+    <section
+        id="orders"
+        class="dashboard-section"
+    >
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    ORDER MANAGEMENT
+                </p>
+
+                <h2>
+                    Customer Orders
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="vendorOrders">
+
+            <div class="loading">
+                Loading orders...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="logo">
+            Market<span>Hub</span>
+        </div>
+
+        <p>
+            Secure Multi-Vendor Marketplace
+        </p>
+
+        <p class="copyright">
+            © 2026 MarketHub. Built for Build Secure Hackathon.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>

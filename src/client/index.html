@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MarketHub | Secure Marketplace</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Market<span>Hub</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="#products">Products</a>
+        <a href="#security">Security</a>
+        <a href="./login.html">Login</a>
+        <a href="./register.html" class="nav-button">
+            Register
+        </a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="security-badge">
+            🔐 Security-First Marketplace
+        </div>
+
+        <h1>
+            Shop Securely.<br>
+            <span>Sell Confidently.</span>
+        </h1>
+
+        <p>
+            MarketHub is a secure multi-vendor marketplace
+            designed with authentication, authorization,
+            API protection and transaction security at its core.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="primary-button">
+                Explore Products
+            </a>
+
+            <a href="./register.html" class="secondary-button">
+                Create Account
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="shield-icon">
+            🛡️
+        </div>
+
+        <h3>
+            Protected Marketplace
+        </h3>
+
+        <p>
+            Defense-in-depth security protects customers,
+            vendors and administrators.
+        </p>
+
+        <div class="security-status">
+
+            <span class="status-dot"></span>
+
+            Security Systems Active
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="products" class="products-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="section-label">
+                MARKETPLACE
+            </p>
+
+            <h2>
+                Featured Products
+            </h2>
+
+            <p class="section-description">
+                Discover products from verified marketplace vendors.
+            </p>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+            <button onclick="loadProducts()">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="productsContainer"
+        class="products-grid"
+    >
+
+        <div class="loading">
+            Loading products...
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="security" class="security-section">
+
+    <div class="section-header centered">
+
+        <p class="section-label">
+            SECURITY BY DESIGN
+        </p>
+
+        <h2>
+            Built to Defend
+        </h2>
+
+        <p class="section-description">
+            MarketHub applies multiple layers of security
+            instead of relying on a single protection mechanism.
+        </p>
+
+    </div>
+
+
+    <div class="security-grid">
+
+
+        <div class="security-card">
+
+            <div class="security-icon">
+                🔐
+            </div>
+
+            <h3>
+                Secure Authentication
+            </h3>
+
+            <p>
+                Passwords are securely hashed and authentication
+                uses short-lived JWT access tokens.
+            </p>
+
+        </div>
+
+
+
+        <div class="security-card">
+
+            <div class="security-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Role-Based Access
+            </h3>
+
+            <p>
+                Customer, vendor and admin permissions
+                are enforced on the server.
+            </p>
+
+        </div>
+
+
+
+        <div class="security-card">
+
+            <div class="security-icon">
+                ⚡
+            </div>
+
+            <h3>
+                API Protection
+            </h3>
+
+            <p>
+                Input validation, rate limiting and
+                parameterized queries protect critical APIs.
+            </p>
+
+        </div>
+
+
+
+        <div class="security-card">
+
+            <div class="security-icon">
+                🔎
+            </div>
+
+            <h3>
+                Access Control
+            </h3>
+
+            <p>
+                Ownership checks prevent unauthorized
+                users from accessing other users' resources.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="cta-section">
+
+    <div>
+
+        <p class="section-label">
+            JOIN MARKETPLACE
+        </p>
+
+        <h2>
+            Your secure marketplace starts here.
+        </h2>
+
+        <p>
+            Create an account and explore MarketHub.
+        </p>
+
+    </div>
+
+    <a
+        href="./register.html"
+        class="primary-button"
+    >
+        Get Started
+    </a>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="logo">
+            Market<span>Hub</span>
+        </div>
+
+        <p>
+            Secure Multi-Vendor Marketplace
+        </p>
+
+        <p class="copyright">
+            © 2026 MarketHub. Built for Build Secure Hackathon.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>
