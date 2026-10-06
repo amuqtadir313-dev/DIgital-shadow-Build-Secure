@@ -5,14 +5,14 @@
 
 team:
   team_id: ""
-  name: ""
-  repository: "" # URL of the newly created GitHub repository for this project
+  name: "Digital Shadows"
+  repository: "https://github.com/amuqtadir313-dev/Digital-shadow-Build-Secure.git" # URL of the newly created GitHub repository for this project
 
 members:
-  - name: ""
-    email: ""
-  - name: ""
-    email: ""
+  - name: "Abdul Muqtadir Saad"
+    email: "amuqtadir313@gmail.com"
+  - name: "Konala Joseph Augustine"
+    email: "josephaugustine.konala@gmail.com"
   - name: ""
     email: ""
   - name: ""
