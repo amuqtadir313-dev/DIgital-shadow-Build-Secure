@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const orderVendorRoutes = require("./routes/orderVendorRoutes");
 
 const { authenticate } = require("./middleware/auth");
 const { authorize } = require("./middleware/authorize");
@@ -100,8 +101,11 @@ app.get(
 // Product routes
 app.use("/api/products", productRoutes);
 
-// Order routes
+// Customer order routes
 app.use("/api/orders", orderRoutes);
+
+// Vendor order management routes
+app.use("/api/vendor/orders", orderVendorRoutes);
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
@@ -120,7 +124,7 @@ app.use((err, req, res, next) => {
 
     res.status(500).json({
         success: false,
-        message: "Internal server error"
+        message: err.message || "Internal server error"
     });
 });
 
